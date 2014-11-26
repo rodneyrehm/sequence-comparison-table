@@ -1,6 +1,6 @@
 {
-  "name": "sequence-comparison-table.js",
-  "version": "0.0.0",
+  "name": "sequence-comparison-table",
+  "version": "0.1.0",
   "authors": [
     "Rodney Rehm <rodney.rehm@medialize.de>"
   ],
@@ -12,6 +12,9 @@
     "diff",
     "compare",
     "table"
+  ],
+  "main": [
+    "src/sequence-table.js"
   ],
   "license": "MIT",
   "private": true,

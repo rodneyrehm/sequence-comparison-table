@@ -73,3 +73,14 @@ var table = sequenceTable(sourceData, {
   }
 });
 ```
+
+## Changelog
+
+### 0.1.0 (November 26th 2014) ###
+
+* initial release
+
+
+## License
+
+sequence-comparison-table.js is published under the [MIT License](http://opensource.org/licenses/mit-license).
