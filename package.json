@@ -6,6 +6,10 @@
     "name": "Rodney Rehm",
     "url": "http://rodneyrehm.de"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rodneyrehm/sequence-comparison-table.git"
+  },
   "main": "src/sequence-table.js",
   "files": [
     "src/map-indexes.js",
@@ -16,7 +20,8 @@
     "LICENSE.txt"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "grunt lint"
   },
   "keywords": [
     "array",
@@ -26,5 +31,10 @@
     "compare",
     "table"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jshint-stylish": "~0.1.5",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.8.0"
+  }
 }
