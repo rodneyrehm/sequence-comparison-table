@@ -10,7 +10,7 @@
 
  */
 
-define(function defineMapIndexes(require) {
+define(function defineMapIndexes(/*require*/) {
   'use strict';
 
   function mapIndexes(master, list, placeholder) {
@@ -35,7 +35,7 @@ define(function defineMapIndexes(require) {
       }
 
       offset--;
-      return placeholder
+      return placeholder;
     });
   }
 

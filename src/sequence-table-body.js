@@ -1,3 +1,4 @@
+/*globals document */
 define(function defineSequenceTableBody(require) {
   'use strict';
 

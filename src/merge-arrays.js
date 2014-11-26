@@ -9,13 +9,13 @@
     // ['alpha', 'bravo', 'charlie', 'delta', 'echo', 'foxtrot', 'charlie', 'golf', 'golf', 'hotel', 'india'];
 
  */
-define(function defineMergeArrays(require) {
+define(function defineMergeArrays(/*require*/) {
   'use strict';
 
   function getInsertionIndexes(from, to) {
     var previous = -1;
     var changes = 0;
-    var indexes = from.map(function(item, index) {
+    var indexes = from.map(function(item) {
       var position = to.indexOf(item);
       if (position <= previous) {
         position = -1;

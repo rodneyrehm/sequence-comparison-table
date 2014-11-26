@@ -2,6 +2,8 @@
 
 Tools to help making sense of sequences. I use this for visualizing the sequence of events across browsers, amongst other things.
 
+## Usage
+
 ```js
 // input sequence data
 var sourceData = {
@@ -16,7 +18,7 @@ var mapped = mapSequences(sourceData);
 
 // resulting data structure
 mapped === {
-  // merged sequence (maintaining order, dealing with duplicates)
+  // merged sequence (maintaining order, allowing duplicates)
   sequence: ['alpha', 'bravo', 'alpha', 'charlie', 'alpha', 'delta', 'echo'],
   // mapping input data indexes:
   // indexInSourceData === table.indexes[indexInTableRows]
