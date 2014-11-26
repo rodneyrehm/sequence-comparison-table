@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>demo</title>
+
+  <style>
+    table {
+      border-collapse: collapse;
+      border: 1px solid #AAA;
+    }
+    th, td {
+      padding: 5px;
+      text-align: center;
+      border: 1px solid #AAA;
+    }
+    tbody th {
+      text-align: left;
+    }
+
+    td[data-expected="no"],
+    td[data-index="-1"][data-expected="no"] {
+      background: #FF851B;
+    }
+    td[data-expected="yes"] {
+      background: #01FF70;
+    }
+    td[data-index="-1"] {
+      background: #FFDC00;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sequence Comparison Table</h1>
+  <div id="table"></div>
+
+  <h2>Source Data</h2>
+  <p>The previous table was generated from the following source data:</p>
+  <pre id="source"></pre>
+
+  <script src="../bower_components/requirejs/require.js" data-main="demo"></script>
+
+</body>
+</html>
