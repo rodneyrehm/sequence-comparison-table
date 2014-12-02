@@ -2,6 +2,17 @@
 
 Tools to help making sense of sequences. I use this for visualizing the sequence of events across browsers, amongst other things.
 
+## Installation
+
+This package currently only works with **AMD** (e.g. [RequireJS](http://requirejs.org/)).
+
+```js
+# via bower
+bower install sequence-comparison-table
+# via npm
+npm install sequence-comparison-table
+```
+
 ## Usage
 
 ```js
