@@ -75,6 +75,15 @@ var tbody = sequenceTableBody(sourceData, {
     //    options.indexes.third[ options.sequenceIndex ]
     //  ]
   },
+  // callback to mutate generated table-row-th
+  titleCell: function(th, options) {
+    // options
+    //  .sequence        === mapped.sequence
+    //  .indexes         === mapped.indexes
+    //  .sequenceIndex   current index of mapped.sequence
+    //  .sequenceItem    === mapped.sequence[ options.sequenceIndex ]
+    //  .data            === sourceData
+  },
 });
 
 // translate sequences to a <table>
@@ -108,6 +117,7 @@ var table = sequenceTable(sourceData, {
 * adding `columnNames` callback signature to `sequenceTable()`
 * adding `columGroups` mapping to `sequenceTable()`
 * adding `data-group="…"` mapping on data cells to `sequenceTable()`
+* adding `titleCell` mapping to `sequenceTableBody()`
 
 ### 0.1.0 (November 26th 2014) ###
 

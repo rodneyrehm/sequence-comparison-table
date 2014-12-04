@@ -4,6 +4,10 @@ define(function defineSequenceTableBody(require) {
 
   var mapSequences = require('./map-sequences');
 
+  function defaultTitleCell(th, options) {
+    th.textContent = options.sequenceItem;
+  }
+
   function sequenceTableBody(data, options) {
     var mapped = mapSequences(data);
     var columnOrder = options && options.columns || Object.keys(data);
@@ -13,9 +17,16 @@ define(function defineSequenceTableBody(require) {
       var row = document.createElement('tr');
       row.setAttribute('data-item', item);
       tbody.appendChild(row);
+
       var th = document.createElement('th');
-      th.textContent = item;
       row.appendChild(th);
+      (options.titleCell || defaultTitleCell)(th, {
+        sequence: mapped.sequence,
+        indexes: mapped.indexes,
+        sequenceIndex: index,
+        sequenceItem: item,
+        data: data,
+      });
 
       var columns = columnOrder.map(function(key) {
         var group = options.groups && options.groups[key] || '';
