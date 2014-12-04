@@ -18,9 +18,11 @@ define(function defineSequenceTableBody(require) {
       row.appendChild(th);
 
       var columns = columnOrder.map(function(key) {
+        var group = options.groups && options.groups[key] || '';
         var value = mapped.indexes[key][index];
         var td = document.createElement('td');
         td.textContent = value;
+        td.setAttribute('data-group', group);
         td.setAttribute('data-key', key);
         td.setAttribute('data-index', value !== null ? value : -1);
         row.appendChild(td);

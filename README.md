@@ -105,8 +105,9 @@ var table = sequenceTable(sourceData, {
 
 ### master (becomes 0.2.0) ###
 
-* adding `columnNames` callback signature to sequenceTable()
-* adding `columGroups` mapping to sequenceTable()
+* adding `columnNames` callback signature to `sequenceTable()`
+* adding `columGroups` mapping to `sequenceTable()`
+* adding `data-group="…"` mapping on data cells to `sequenceTable()`
 
 ### 0.1.0 (November 26th 2014) ###
 

@@ -6,6 +6,13 @@ define(function defineSequenceTableBody(require) {
 
   function addColumnGroups(row, data) {
     var groups = Object.keys(data);
+    var map = {};
+    groups.forEach(function(key) {
+      Array.isArray(data[key]) && data[key].forEach(function(column) {
+        map[column] = key;
+      });
+    });
+
     groups.unshift('');
     groups.forEach(function(key) {
       var colspan = data[key] && data[key].length || 1;
@@ -18,12 +25,15 @@ define(function defineSequenceTableBody(require) {
       var th = document.createElement('th');
       th.textContent = key;
       th.colSpan = colspan;
+      th.setAttribute('data-group', key);
       row.appendChild(th);
     });
+
+    return map;
   }
 
   function sequenceTable(data, options) {
-    var columnOrder = options && options.columns || Object.keys(data);
+    var columnOrder = options && options.columns.slice(0) || Object.keys(data);
       /*jshint laxbreak: true */
     var columnCallback = typeof options.columnNames === 'function' && options.columnNames || function(th, key) {
       th.textContent = options.columnNames[key] || key;
@@ -32,24 +42,27 @@ define(function defineSequenceTableBody(require) {
     var table = document.createElement('table');
     var thead = document.createElement('thead');
     table.appendChild(thead);
-    var tbody = sequenceTableBody(data, options);
-    table.appendChild(tbody);
     var row = document.createElement('tr');
     thead.appendChild(row);
 
     if (options.columnGroups) {
-      addColumnGroups(row, options.columnGroups);
+      options.groups = addColumnGroups(row, options.columnGroups);
       row = document.createElement('tr');
       thead.appendChild(row);
     }
 
     columnOrder.unshift('');
     columnOrder.forEach(function(key) {
+      var group = options.groups && options.groups[key];
       var th = document.createElement('th');
       th.setAttribute('data-key', key);
+      th.setAttribute('data-group', group);
       row.appendChild(th);
       columnCallback(th, key);
     });
+
+    var tbody = sequenceTableBody(data, options);
+    table.appendChild(tbody);
 
     return table;
   }
