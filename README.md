@@ -80,7 +80,9 @@ var tbody = sequenceTableBody(sourceData, {
 // translate sequences to a <table>
 var sequenceTable = require('./sequence-table');
 var table = sequenceTable(sourceData, {
-  // same options as sequenceTableBody() and:
+  // same options as sequenceTableBody(), and:
+
+  // map column names
   columnNames: {
     first: 'some',
     second: 'more',
@@ -89,7 +91,13 @@ var table = sequenceTable(sourceData, {
   // or callback function
   columnNames: function(th, key) {
     th.textContent = key;
-  }
+  },
+
+  // group columns:
+  columnGroups: {
+    'group 1': ['first'],
+    'group 2': ['second', 'third'],
+  },
 });
 ```
 
@@ -97,7 +105,8 @@ var table = sequenceTable(sourceData, {
 
 ### master (becomes 0.2.0) ###
 
-* adding columnNames callback signature to sequence-table
+* adding `columnNames` callback signature to sequenceTable()
+* adding `columGroups` mapping to sequenceTable()
 
 ### 0.1.0 (November 26th 2014) ###
 
