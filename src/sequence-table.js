@@ -13,7 +13,9 @@ define(function defineSequenceTableBody(require) {
       });
     });
 
-    groups.unshift('');
+    if (groups[0] !== '') {
+      groups.unshift('');
+    }
     groups.forEach(function(key) {
       var colspan = data[key] && data[key].length || 1;
       var previous = row.children[row.children.length -1];
