@@ -47,6 +47,7 @@ define(function defineSequenceTableBody(require) {
 
     if (options.columnGroups) {
       options.groups = addColumnGroups(row, options.columnGroups);
+      row.className = 'groups';
       row = document.createElement('tr');
       thead.appendChild(row);
     }
