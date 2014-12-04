@@ -28,16 +28,47 @@
     td[data-index="-1"] {
       background: #FFDC00;
     }
+
+    body {
+      margin-bottom: 50px;
+    }
   </style>
 </head>
 <body>
 
   <h1>Sequence Comparison Table</h1>
-  <div id="table"></div>
 
-  <h2>Source Data</h2>
-  <p>The previous table was generated from the following source data:</p>
-  <pre id="source"></pre>
+  <p>Paste your JSON data into the textarea and hit the update button.</p>
+  <textarea id="source" cols="100" rows="15">{
+  "expected": [
+    "alpha",
+    "bravo",
+    "charlie",
+    "delta"
+  ],
+  "first": [
+    "alpha",
+    "charlie",
+    "delta"
+  ],
+  "second": [
+    "bravo",
+    "charlie",
+    "delta",
+    "echo"
+  ],
+  "third": [
+    "alpha",
+    "alpha",
+    "charlie",
+    "alpha",
+    "delta"
+  ]
+}</textarea>
+
+  <p><button type="button" id="update">update table</button></p>
+  <h2>Generated Table:</h2>
+  <div id="table"></div>
 
   <script src="../bower_components/requirejs/require.js" data-main="demo"></script>
 
