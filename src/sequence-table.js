@@ -6,6 +6,11 @@ define(function defineSequenceTableBody(require) {
 
   function sequenceTable(data, options) {
     var columnOrder = options && options.columns || Object.keys(data);
+      /*jshint laxbreak: true */
+    var columnCallback = typeof options.columnNames === 'function' && options.columnNames || function(th, key) {
+      th.textContent = options.columnNames[key] || key;
+    };
+
     var table = document.createElement('table');
     var thead = document.createElement('thead');
     table.appendChild(thead);
@@ -17,9 +22,9 @@ define(function defineSequenceTableBody(require) {
     columnOrder.unshift('');
     columnOrder.forEach(function(key) {
       var th = document.createElement('th');
-      th.textContent = options.columnNames[key] || key;
       th.setAttribute('data-key', key);
       row.appendChild(th);
+      columnCallback(th, key);
     });
 
     return table;

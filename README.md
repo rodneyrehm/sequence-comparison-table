@@ -86,10 +86,18 @@ var table = sequenceTable(sourceData, {
     second: 'more',
     third: 'data',
   }
+  // or callback function
+  columnNames: function(th, key) {
+    th.textContent = key;
+  }
 });
 ```
 
 ## Changelog
+
+### master (becomes 0.2.0) ###
+
+* adding columnNames callback signature to sequence-table
 
 ### 0.1.0 (November 26th 2014) ###
 
