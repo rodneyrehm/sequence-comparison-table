@@ -112,7 +112,7 @@ var table = sequenceTable(sourceData, {
 
 ## Changelog
 
-### master (becomes 0.2.0) ###
+### 0.2.0 (December 4th 2014) ###
 
 * adding `columnNames` callback signature to `sequenceTable()`
 * adding `columGroups` mapping to `sequenceTable()`
