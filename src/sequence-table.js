@@ -35,10 +35,14 @@ define(function defineSequenceTableBody(require) {
   }
 
   function sequenceTable(data, options) {
-    var columnOrder = options && options.columns.slice(0) || Object.keys(data);
+    if (!options) {
+      options = {};
+    }
+
+    var columnOrder = options.columns && options.columns.slice(0) || Object.keys(data);
       /*jshint laxbreak: true */
     var columnCallback = typeof options.columnNames === 'function' && options.columnNames || function(th, key) {
-      th.textContent = options.columnNames[key] || key;
+      th.textContent = options.columnNames && options.columnNames[key] || key;
     };
 
     var table = document.createElement('table');

@@ -9,6 +9,10 @@ define(function defineSequenceTableBody(require) {
   }
 
   function sequenceTableBody(data, options) {
+    if (!options) {
+      options = {};
+    }
+
     var mapped = mapSequences(data);
     var columnOrder = options && options.columns || Object.keys(data);
     var tbody = document.createElement('tbody');

@@ -118,6 +118,7 @@ var table = sequenceTable(sourceData, {
 * adding `columGroups` mapping to `sequenceTable()`
 * adding `data-group="…"` mapping on data cells to `sequenceTable()`
 * adding `titleCell` mapping to `sequenceTableBody()`
+* fixing `sequenceTable()` to treat `options` as an optional thing
 
 ### 0.1.0 (November 26th 2014) ###
 
