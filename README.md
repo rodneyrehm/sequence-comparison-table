@@ -2,6 +2,8 @@
 
 Tools to help making sense of sequences. I use this for visualizing the sequence of events across browsers, amongst other things.
 
+see [demo](http://rodneyrehm.github.io/sequence-comparison-table/demo/index.html)
+
 ## Installation
 
 This package currently only works with **AMD** (e.g. [RequireJS](http://requirejs.org/)).
@@ -73,21 +75,50 @@ var tbody = sequenceTableBody(sourceData, {
     //    options.indexes.third[ options.sequenceIndex ]
     //  ]
   },
+  // callback to mutate generated table-row-th
+  titleCell: function(th, options) {
+    // options
+    //  .sequence        === mapped.sequence
+    //  .indexes         === mapped.indexes
+    //  .sequenceIndex   current index of mapped.sequence
+    //  .sequenceItem    === mapped.sequence[ options.sequenceIndex ]
+    //  .data            === sourceData
+  },
 });
 
 // translate sequences to a <table>
 var sequenceTable = require('./sequence-table');
 var table = sequenceTable(sourceData, {
-  // same options as sequenceTableBody() and:
+  // same options as sequenceTableBody(), and:
+
+  // map column names
   columnNames: {
     first: 'some',
     second: 'more',
     third: 'data',
   }
+  // or callback function
+  columnNames: function(th, key) {
+    th.textContent = key;
+  },
+
+  // group columns:
+  columnGroups: {
+    'group 1': ['first'],
+    'group 2': ['second', 'third'],
+  },
 });
 ```
 
 ## Changelog
+
+### 0.2.0 (December 4th 2014) ###
+
+* adding `columnNames` callback signature to `sequenceTable()`
+* adding `columGroups` mapping to `sequenceTable()`
+* adding `data-group="…"` mapping on data cells to `sequenceTable()`
+* adding `titleCell` mapping to `sequenceTableBody()`
+* fixing `sequenceTable()` to treat `options` as an optional thing
 
 ### 0.1.0 (November 26th 2014) ###
 

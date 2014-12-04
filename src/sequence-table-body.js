@@ -4,7 +4,15 @@ define(function defineSequenceTableBody(require) {
 
   var mapSequences = require('./map-sequences');
 
+  function defaultTitleCell(th, options) {
+    th.textContent = options.sequenceItem;
+  }
+
   function sequenceTableBody(data, options) {
+    if (!options) {
+      options = {};
+    }
+
     var mapped = mapSequences(data);
     var columnOrder = options && options.columns || Object.keys(data);
     var tbody = document.createElement('tbody');
@@ -13,14 +21,23 @@ define(function defineSequenceTableBody(require) {
       var row = document.createElement('tr');
       row.setAttribute('data-item', item);
       tbody.appendChild(row);
+
       var th = document.createElement('th');
-      th.textContent = item;
       row.appendChild(th);
+      (options.titleCell || defaultTitleCell)(th, {
+        sequence: mapped.sequence,
+        indexes: mapped.indexes,
+        sequenceIndex: index,
+        sequenceItem: item,
+        data: data,
+      });
 
       var columns = columnOrder.map(function(key) {
+        var group = options.groups && options.groups[key] || '';
         var value = mapped.indexes[key][index];
         var td = document.createElement('td');
         td.textContent = value;
+        td.setAttribute('data-group', group);
         td.setAttribute('data-key', key);
         td.setAttribute('data-index', value !== null ? value : -1);
         row.appendChild(td);
