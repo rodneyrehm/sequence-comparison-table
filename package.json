@@ -1,6 +1,6 @@
 {
   "name": "sequence-comparison-table",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "tools to help making sense of sequences",
   "author": {
     "name": "Rodney Rehm",
@@ -14,7 +14,7 @@
   "files": [
     "src/map-indexes.js",
     "src/map-sequences.js",
-    "src/merge-array.js",
+    "src/merge-arrays.js",
     "src/sequence-table-body.js",
     "src/sequence-table.js",
     "LICENSE.txt"
