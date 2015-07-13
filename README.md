@@ -112,6 +112,10 @@ var table = sequenceTable(sourceData, {
 
 ## Changelog
 
+### 0.2.1 (December 4th 2014) ###
+
+* fixing `package.json` to properly include `merge-arrays.js`
+
 ### 0.2.0 (December 4th 2014) ###
 
 * adding `columnNames` callback signature to `sequenceTable()`
